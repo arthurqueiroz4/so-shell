@@ -16,6 +16,11 @@ int main() {
             break;
         }
         
-        puts(input);
+        if (strcmp(input, "cat") == 0) {
+            
+        } else {
+            puts("Comando não encontrado");
+        }
+        
     }
 }

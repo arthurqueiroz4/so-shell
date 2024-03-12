@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "cat.h": "c",
+        "string.h": "c"
+    }
+}
