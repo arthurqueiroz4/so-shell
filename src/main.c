@@ -34,11 +34,16 @@ int main() {
     pid_t child_pid;
     if ((child_pid = fork()) == 0) {
       execvp(command, args);
-        perror("execvp");
-        exit(EXIT_FAILURE);
+      perror("execvp");
+      exit(EXIT_FAILURE);
     } else {
         int status;
         waitpid(child_pid, &status, 0);
+        if (WIFSIGNALED(status)) {
+          printf("Houve um erro na execucao do comando %s. Sinal: %d\n", command, WTERMSIG(status));
+        }
     }
+    free(input);
+    free(args);
   }
 }
